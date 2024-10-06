@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //fetch using promises
+        // let data=fetch("https://fakestoreapi.com/products");
+
+        // data.then((ok)=>{
+        //     return ok.json()
+        // }).then((k)=>{
+        //     console.log(k[3]);
+        // })
+        async function data(){
+            let a = await fetch("https://fakestoreapi.com/products");
+            let inn= await a.json();
+            let out=inn.map((a)=>{
+                let im=document.createElement("img");
+                im.src=`${a.image}`;
+                im.style.height="180px";
+                im.style.backgroundColor="lime";
+                document.body.appendChild(im);
+            })
+            // let dd=inn[0].image;
+            // let img=document.createElement("img");
+            // img.src=`${dd}`;
+            // img.style.height="160px";
+            // img.style.width="200px";
+            // document.body.appendChild(img);
+        }
+        data();
+    </script>
+</body>
+</html>
