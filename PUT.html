@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTTP PUT</title>
+</head>
+<body>
+    <button id="btn">PUT Data</button>
+    <!-- postman is used to test the API's -->
+     <!-- PUT: Used to Update the existing data
+       # replaces an entire resource with new data -->
+     <script>
+            let btn=document.getElementById("btn");
+            btn.addEventListener("click",()=>{
+             async function myfn(){
+                let data= await fetch("http://localhost:3000/posts/4",{method:"PUT", headers:{
+                "Content-Type":"application/json"}, 
+                body:JSON.stringify({
+                   "ParentNum":45678899
+                    
+                })
+            });
+           let dd= await data.json();
+           console.log(dd);
+             }
+             myfn();
+            })
+            
+        
+        
+     </script>
+
+</body>
+</html>
